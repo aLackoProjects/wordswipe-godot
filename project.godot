@@ -1,0 +1,55 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Word Swipe"
+config/version="0.15.08.24"
+config/tags=PackedStringArray("complete", "dads_bday_2024", "gift", "puzzle")
+run/main_scene="res://scenes/game.tscn"
+config/features=PackedStringArray("4.3", "Mobile")
+boot_splash/show_image=false
+config/icon="res://icons/actual_icon.png"
+
+[autoload]
+
+GameGlobal="*res://scenes/game_global.tscn"
+
+[display]
+
+window/stretch/mode="canvas_items"
+
+[file_customization]
+
+folder_colors={
+"res://icons/": "orange",
+"res://scenes/": "green",
+"res://scripts/": "blue",
+"res://words/": "red"
+}
+
+[input]
+
+reset={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
+]
+}
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(0.270588, 0.305882, 0.545098, 1)

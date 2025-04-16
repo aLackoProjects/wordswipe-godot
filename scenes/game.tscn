@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://dy281ou3mw4kc"]
+
+[ext_resource type="PackedScene" uid="uid://d4nq2yav5kufc" path="res://scenes/main.tscn" id="1_lqgux"]
+[ext_resource type="PackedScene" uid="uid://b7b7ndnesmldj" path="res://scenes/transition.tscn" id="2_ellye"]
+[ext_resource type="PackedScene" uid="uid://ctujtypmxjek0" path="res://scenes/main_menu.tscn" id="3_quso6"]
+[ext_resource type="PackedScene" uid="uid://s3a1m7kr80xt" path="res://scenes/pause.tscn" id="4_lgerw"]
+[ext_resource type="PackedScene" uid="uid://buu3fm7hm8y0v" path="res://scenes/stats.tscn" id="5_txotm"]
+
+[node name="game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="main" parent="." instance=ExtResource("1_lqgux")]
+
+[node name="transition" parent="." instance=ExtResource("2_ellye")]
+z_index = 20
+
+[node name="main_menu" parent="." instance=ExtResource("3_quso6")]
+visible = false
+z_index = 10
+layout_mode = 1
+
+[node name="pause" parent="." instance=ExtResource("4_lgerw")]
+visible = false
+z_index = 25
+layout_mode = 1
+
+[node name="stats" parent="." instance=ExtResource("5_txotm")]
+visible = false
+z_index = 25
+layout_mode = 1
+
+[connection signal="quit_desired" from="main" to="pause" method="pause"]
+[connection signal="halfway" from="transition" to="main" method="start"]
+[connection signal="halfway" from="transition" to="main_menu" method="hide"]
+[connection signal="other_halfway" from="transition" to="main" method="quit"]
+[connection signal="other_halfway" from="transition" to="main_menu" method="menu"]
+[connection signal="play" from="main_menu" to="transition" method="transition_right"]
+[connection signal="stats" from="main_menu" to="stats" method="show_stats"]
+[connection signal="exit" from="pause" to="main" method="hidequickmen"]
+[connection signal="exit" from="pause" to="transition" method="transition_left"]

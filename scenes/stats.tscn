@@ -1,0 +1,141 @@
+[gd_scene load_steps=11 format=3 uid="uid://buu3fm7hm8y0v"]
+
+[ext_resource type="Script" path="res://scripts/stats.gd" id="1_v32p2"]
+[ext_resource type="Texture2D" uid="uid://cpior6qeaq6c4" path="res://icons/exit.svg" id="2_wm1i7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r1km8"]
+bg_color = Color(0.266667, 0.305882, 0.545098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wo1bh"]
+content_margin_left = 20.0
+bg_color = Color(0.239216, 0.741176, 0.878431, 1)
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3qfus"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k128x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8534b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k3nqf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rrdo0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hp5sa"]
+
+[node name="stats" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v32p2")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_r1km8")
+
+[node name="global_words" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 172.0
+offset_right = -511.0
+offset_bottom = -217.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wo1bh")
+
+[node name="title" type="Label" parent="global_words"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = -48.0
+offset_right = 350.0
+offset_bottom = -3.0
+theme_override_font_sizes/font_size = 32
+text = "Lifetime Words Used:"
+
+[node name="Label" type="RichTextLabel" parent="global_words"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_right = -41.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 32
+text = "words"
+
+[node name="favorite_word" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 492.0
+offset_right = -717.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_3qfus")
+
+[node name="title" type="Label" parent="favorite_word"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = -49.0
+offset_right = 350.0
+offset_bottom = -4.0
+theme_override_font_sizes/font_size = 32
+text = "Favourite word:"
+
+[node name="Label" type="Label" parent="favorite_word"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = -1.0
+offset_right = 148.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_wo1bh")
+text = "words?"
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 276.0
+offset_bottom = 97.0
+theme_override_font_sizes/font_size = 48
+text = "Statistics..."
+
+[node name="exit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -96.0
+offset_bottom = 96.0
+grow_horizontal = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_k128x")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8534b")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_k3nqf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_rrdo0")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hp5sa")
+icon = ExtResource("2_wm1i7")
+
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]

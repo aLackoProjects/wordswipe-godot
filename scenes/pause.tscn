@@ -1,0 +1,164 @@
+[gd_scene load_steps=15 format=3 uid="uid://s3a1m7kr80xt"]
+
+[ext_resource type="Script" path="res://scripts/pause.gd" id="1_6eayt"]
+[ext_resource type="Texture2D" uid="uid://bydlqlhcbpuhq" path="res://icons/gravity.svg" id="1_7qm73"]
+[ext_resource type="Texture2D" uid="uid://cpior6qeaq6c4" path="res://icons/exit.svg" id="2_wl5kp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2tbak"]
+bg_color = Color(0.455895, 0.508152, 0.776526, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhqqc"]
+bg_color = Color(0.266667, 0.305882, 0.545098, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n7ae8"]
+bg_color = Color(0.266667, 0.305882, 0.545098, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ek8kq"]
+bg_color = Color(0.266667, 0.305882, 0.545098, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d4ym5"]
+bg_color = Color(0.266667, 0.305882, 0.545098, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwd7v"]
+bg_color = Color(0.266667, 0.305882, 0.545098, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j8nwn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a50ku"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bdh5b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qxqnu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_14ndb"]
+
+[node name="pause" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6eayt")
+
+[node name="backdrop" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="main" type="Panel" parent="backdrop"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = 376.0
+offset_right = 250.0
+offset_bottom = 876.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2tbak")
+
+[node name="Label" type="Label" parent="backdrop/main"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 40.0
+offset_right = 480.0
+offset_bottom = 107.0
+theme_override_font_sizes/font_size = 48
+text = "Paused..."
+
+[node name="scores" type="Label" parent="backdrop/main"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 40.0
+offset_right = 480.0
+offset_bottom = 107.0
+theme_override_font_sizes/font_size = 24
+text = "Score: 1234
+High Score: 1234"
+horizontal_alignment = 2
+
+[node name="unpause" type="Button" parent="backdrop/main"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -116.0
+offset_right = 116.0
+offset_bottom = -20.0
+grow_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxFlat_rhqqc")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_n7ae8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ek8kq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_d4ym5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_jwd7v")
+icon = ExtResource("1_7qm73")
+
+[node name="exit" type="Button" parent="backdrop/main"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -116.0
+offset_top = -116.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j8nwn")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_a50ku")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_bdh5b")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qxqnu")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_14ndb")
+icon = ExtResource("2_wl5kp")
+
+[node name="words" type="RichTextLabel" parent="backdrop/main"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -137.0
+offset_right = -20.0
+offset_bottom = 124.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 32
+text = "words"
+
+[connection signal="pressed" from="backdrop/main/unpause" to="." method="_on_unpause_pressed"]
+[connection signal="pressed" from="backdrop/main/exit" to="." method="_on_exit_pressed"]

@@ -1,0 +1,161 @@
+[gd_scene load_steps=12 format=3 uid="uid://ctujtypmxjek0"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_2cvxu"]
+[ext_resource type="Texture2D" uid="uid://dfmpwqquawsa7" path="res://icons/icon.png" id="1_jysvc"]
+[ext_resource type="Texture2D" uid="uid://bydlqlhcbpuhq" path="res://icons/gravity.svg" id="2_puefa"]
+[ext_resource type="Texture2D" uid="uid://bs4ytv52sbua8" path="res://icons/stats.svg" id="3_6exwk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7gcfp"]
+bg_color = Color(0.999999, 0.814924, 0.48977, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2h8gx"]
+bg_color = Color(0.956256, 0.722862, 0.600418, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xukm4"]
+bg_color = Color(0.83674, 0.617143, 0.635278, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2mfsy"]
+bg_color = Color(0.68987, 0.475228, 0.613057, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_004jq"]
+bg_color = Color(0.276758, 0.0852153, 0.606395, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4jl5k"]
+bg_color = Color(0.690196, 0.47451, 0.611765, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hqocv"]
+bg_color = Color(0.956863, 0.721569, 0.6, 1)
+corner_radius_top_right = 50
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2cvxu")
+
+[node name="background" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="row" type="Panel" parent="background"]
+z_index = -1
+layout_mode = 0
+offset_top = 560.0
+offset_right = 1152.0
+offset_bottom = 644.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7gcfp")
+
+[node name="row2" type="Panel" parent="background"]
+z_index = -2
+layout_mode = 0
+offset_top = 494.0
+offset_right = 1152.0
+offset_bottom = 646.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2h8gx")
+
+[node name="row3" type="Panel" parent="background"]
+z_index = -3
+layout_mode = 0
+offset_top = 438.0
+offset_right = 1152.0
+offset_bottom = 643.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xukm4")
+
+[node name="row4" type="Panel" parent="background"]
+z_index = -4
+layout_mode = 0
+offset_top = 390.0
+offset_right = 1152.0
+offset_bottom = 645.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2mfsy")
+
+[node name="row5" type="Panel" parent="background"]
+z_index = -5
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 657.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_004jq")
+
+[node name="play" type="Button" parent="."]
+z_index = 7
+layout_mode = 0
+offset_left = 15.0
+offset_top = 341.0
+offset_right = 264.0
+offset_bottom = 437.0
+theme_override_font_sizes/font_size = 48
+theme_override_styles/focus = SubResource("StyleBoxFlat_4jl5k")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_4jl5k")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4jl5k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4jl5k")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4jl5k")
+text = "Play"
+icon = ExtResource("2_puefa")
+
+[node name="stats" type="Button" parent="."]
+z_index = 7
+layout_mode = 0
+offset_left = 142.0
+offset_top = 464.0
+offset_right = 391.0
+offset_bottom = 560.0
+theme_override_font_sizes/font_size = 48
+theme_override_styles/focus = SubResource("StyleBoxFlat_hqocv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hqocv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hqocv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hqocv")
+text = "Stats"
+icon = ExtResource("3_6exwk")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(844, 395)
+texture = ExtResource("1_jysvc")
+
+[node name="version" type="Label" parent="."]
+layout_mode = 0
+offset_left = 837.0
+offset_top = 1.0
+offset_right = 1145.0
+offset_bottom = 50.0
+text = " "
+horizontal_alignment = 2
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 47.0
+offset_right = 87.0
+offset_bottom = 40.0
+
+[node name="title2" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 122.0
+offset_right = 427.0
+offset_bottom = 259.0
+theme_override_font_sizes/font_size = 100
+text = "Swipe"
+
+[node name="title" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 334.0
+offset_bottom = 175.0
+theme_override_font_sizes/font_size = 128
+text = "Word"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 249.0
+offset_right = 582.0
+offset_bottom = 294.0
+theme_override_font_sizes/font_size = 32
+text = "Welcome to the Internet"
+
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="stats" to="." method="_on_stats_pressed"]

@@ -1,0 +1,84 @@
+[gd_scene load_steps=4 format=3 uid="uid://vqqoqdjfjxi7"]
+
+[ext_resource type="Script" path="res://scripts/letter.gd" id="1_5tyb1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yuhmi"]
+size = Vector2(55, 55)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0sl1g"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="letter" type="Node2D"]
+position = Vector2(-32, -32)
+script = ExtResource("1_5tyb1")
+
+[node name="Area2D" type="Area2D" parent="."]
+z_index = 1
+priority = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(30, 30)
+shape = SubResource("RectangleShape2D_yuhmi")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+z_index = 1
+position = Vector2(30, 30)
+shape = SubResource("RectangleShape2D_yuhmi")
+shape_centered = false
+passby_press = true
+
+[node name="rotate_axis" type="Node2D" parent="."]
+position = Vector2(32, 32)
+
+[node name="letter" type="Label" parent="rotate_axis"]
+z_index = 1
+texture_filter = 3
+texture_repeat = 1
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 28.0
+offset_bottom = 28.0
+mouse_force_pass_scroll_events = false
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 32
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="background" type="Label" parent="rotate_axis"]
+texture_filter = 3
+texture_repeat = 1
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 28.0
+offset_bottom = 28.0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_0sl1g")
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="value" type="Label" parent="rotate_axis"]
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 28.0
+offset_bottom = 34.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+text = "12"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[connection signal="mouse_entered" from="Area2D" to="." method="on_mouse_entered"]
+[connection signal="pressed" from="TouchScreenButton" to="." method="touch"]
+[connection signal="released" from="TouchScreenButton" to="." method="released"]
